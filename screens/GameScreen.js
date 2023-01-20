@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Alert } from "react-native";
+import Card from "../components/Card";
 import NumberContainer from "../components/game/NumberContainer";
+import InstructionText from "../components/InstructionText";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
+import { Ionicons } from "@expo/vector-icons";
 
 function generateRandomNumber(min, max, exclude){
     let rndNumber = Math.floor(Math.random() * (max - min)) + min;
@@ -46,13 +49,21 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         <View style={styles.screen}>
             <Title>Opponent Guess</Title>
             <NumberContainer>{currentGuess}</NumberContainer>
-            <View>
-                <Text>Higher or Lower</Text>
-                <View>
-                    <PrimaryButton onPress={() => nextGuessHandler("lower")}>-</PrimaryButton>
-                    <PrimaryButton onPress={() => nextGuessHandler("greater")}>+</PrimaryButton>
+            <Card>
+                <InstructionText style={styles.instructionText}>Higher or Lower</InstructionText>
+                <View style={styles.buttonsContainer}>
+                    <View style={styles.buttonContainer}>
+                      <PrimaryButton onPress={() => nextGuessHandler("lower")}>
+                        <Ionicons name="md-remove" size={24} color="white" />
+                      </PrimaryButton>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                    <PrimaryButton onPress={() => nextGuessHandler("greater")}>
+                     <Ionicons name="md-add" size={24} color="white" />
+                    </PrimaryButton>
+                    </View>
                 </View>
-            </View>
+            </Card>
             <View><Text>LOG OUR ROUNDS</Text></View>
         </View>
     )
@@ -63,5 +74,14 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         padding: 24
+    },
+    instructionText: {
+        marginBottom: 12
+    },
+    buttonsContainer: {
+        flexDirection: "row"
+    },
+    buttonContainer: {
+        flex: 1
     }
 });
