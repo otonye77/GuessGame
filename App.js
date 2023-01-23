@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ImageBackground, StyleSheet, View, SafeAreaView } from 'react-native';
+import { ImageBackground, StyleSheet, SafeAreaView } from 'react-native';
 import { LinearGradient }from "expo-linear-gradient";
 import StartGameScreen from './screens/StartGameScreen';
 import GameOverScreen from './screens/GameOverScreen';
