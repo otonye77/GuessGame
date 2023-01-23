@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     imageContainer: {
         borderRadius: deviceWidth < 380 ? 75 : 150,
         width: deviceWidth < 380 ? 150 : 300,
-        height: deviceHeight < 380 ? 150 : 300,
+        height: deviceWidth < 380 ? 150 : 300,
         borderWidth: 3,
         borderColor: "black",
         overflow: "hidden",
