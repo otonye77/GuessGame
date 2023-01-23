@@ -8,6 +8,7 @@ const Title = ({ children }) => {
 export default Title;
 const styles = StyleSheet.create({
     title: {
+        maxWidth: "80%",
         fontFamily: "open-sans-bold",
         fontSize: 18,
         color: "white",
